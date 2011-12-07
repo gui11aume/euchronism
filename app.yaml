@@ -17,6 +17,10 @@ handlers:
   static_files: images/favicon.ico
   upload: images/favicon\.ico
 
+- url: /send
+  script: euchronism_send.py
+  login: admin
+
 - url: /.*
   script: euchronism_chronicles.py
   login: required
