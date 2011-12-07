@@ -1,0 +1,59 @@
+/* Text defaults */
+body {
+  font-family:"Serif";
+}
+h1 {
+  font-size:300%;
+  margin-bottom:0px;
+}
+
+/* Other stuff */
+
+#linea {
+  height:5px;
+  background-color:black;
+}
+#lineb {
+  height:4px;
+  background-color:#707070; // Dark grey
+}
+#linec {
+  height:4px;
+  background-color:#B8B8B8; // Light grey
+}
+#band{
+  margin-bottom:0px;
+  padding-bottom:0px;
+}
+#main_container {
+  background-color:red;
+  padding-top:0px;
+  margin-top:0px;
+  width:900px;
+}
+#words {
+  float:left;
+  width:170px;
+}
+#body {
+  float:left;
+}
+#send_on {
+  position:relative;
+  left:526px;
+  margin-bottom:0px;
+}
+#text_area {
+  float:left;
+}
+#submit_button {
+  float:left;
+  clear:both;
+}
+#word_cloud {
+}
+#footer {
+  float:left;
+  clear:both;
+  height:4em;
+}
