@@ -54,7 +54,8 @@ class ChronicleForm(webapp.RequestHandler):
             'page_title': 'Euchronism',
             'page_content': open(
                 os.path.join(dot, 'content', 'chronicle_content.html')
-            ).read()
+            ).read(),
+            'logout_url': users.create_logout_url("/"),
          }
 
          # ... and send!

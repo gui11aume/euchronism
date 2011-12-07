@@ -21,12 +21,16 @@ h1 {
   height:4px;
   background-color:#B8B8B8; // Light grey
 }
+#links {
+  position:absolute;
+  top:2px;
+  left: 200px;
+}
 #band{
   margin-bottom:0px;
   padding-bottom:0px;
 }
 #main_container {
-  background-color:red;
   padding-top:0px;
   margin-top:0px;
   width:900px;
@@ -36,6 +40,10 @@ h1 {
   width:170px;
 }
 #body {
+  float:left;
+}
+#logout{
+  margin-top:3em;
   float:left;
 }
 #send_on {

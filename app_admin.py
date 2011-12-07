@@ -42,6 +42,6 @@ def mail_admin(user_mail, message=None):
    mail.send_mail(
        ADMAIL,
        ADMAIL,
-       "PubCron report",
+       "Euchronism report",
        "%s:\n%s" % (user_mail, message)
    )

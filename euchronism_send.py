@@ -20,46 +20,35 @@ class Despatcher(webapp.RequestHandler):
 
    def get(self):
 
-# ---------------------------------------
-      msg = mail.EmailMessage()
-      msg.initialize(
-         to = 'guillaume.filion@gmail.com'
-         sender = 'euchronism.mailer@gmail.com',
-         subject = 'test'
-         body = 'test'
-      msg.send()
-      return
-# ---------------------------------------
-      
-
       today = datetime.datetime.today().strftime('%m/%d/%Y')
 
       # Get all users data.
       data = app_admin.EuchronismData.gql(
-            'WHERE ANCESTOR = :1', app_admin.chronicle_key()
+            'WHERE ANCESTOR IS :1', app_admin.chronicle_key()
       )
 
-#      for user_data in data:
-#
-#         # Embed in a try. Send a mail to admin in case of failure.
-#         try:
-#            chronicles = json.loads(user_data.chronicles)
-#            if today in chronicles.keys():
-#               todays_chronicle = chronicles.pop(today)
-#   
-#               msg = mail.EmailMessage()
-#               msg.initialize(
-#                  to = user_data.user.email(),
-#                  sender = app_admin.ADMAIL,
-#                  subject = 'You got a chronicle',
-#                  body = todays_chronicle
-#               msg.send()
-#   
-#               user_data.chronicles = json.dumps(chronicles)
-#               user_data.put()
-#
-#         except Exception:
-#            app_admin.mail_admin(app_admin.ADMAIL)
+      for user_data in data:
+
+         # Embed in a try. Send a mail to admin in case of failure.
+         try:
+            chronicles = json.loads(user_data.chronicles or '{}')
+            if today in chronicles.keys():
+               todays_chronicle = chronicles.pop(today)
+   
+               msg = mail.EmailMessage()
+               msg.initialize(
+                  to = user_data.user.email(),
+                  sender = app_admin.ADMAIL,
+                  subject = 'Chronicle',
+                  body = todays_chronicle
+               )
+               msg.send()
+   
+               user_data.chronicles = json.dumps(chronicles)
+               user_data.put()
+
+         except Exception:
+            app_admin.mail_admin(app_admin.ADMAIL)
 
 
 application = webapp.WSGIApplication([
