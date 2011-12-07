@@ -21,6 +21,9 @@ handlers:
   script: euchronism_send.py
   login: admin
 
+- url: /FAQ.html
+  script: euchronism_nologin.py
+
 - url: /.*
   script: euchronism_chronicles.py
   login: required

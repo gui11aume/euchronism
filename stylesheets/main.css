@@ -5,6 +5,9 @@ body {
 h1 {
   font-size:300%;
 }
+p {
+  text-indent:1em;
+}
 
 /* Other stuff */
 
@@ -23,7 +26,7 @@ h1 {
 #links {
   position:absolute;
   top:2px;
-  left: 200px;
+  left: 180px;
 }
 #band{
   margin-bottom:0px;
@@ -39,6 +42,7 @@ h1 {
   width:170px;
 }
 #body {
+  width:700px;
   float:left;
 }
 #logout{
@@ -56,7 +60,13 @@ h1 {
   float:left;
   clear:both;
 }
-#word_cloud {
+#quote{
+  position:absolute;
+  width:220px;
+  top: 50px;
+  right:30px;
+  float:left;
+  font-size:small;
 }
 #footer {
   float:left;
