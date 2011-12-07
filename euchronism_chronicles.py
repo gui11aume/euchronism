@@ -51,7 +51,7 @@ class ChronicleForm(webapp.RequestHandler):
 
          template_path = os.path.join(dot, 'euchronism_template.html')
          template_values = {
-            'page_title': 'Euchronism',
+            'page_title': 'Euchronism (%s)' % user.email(),
             'page_content': open(
                 os.path.join(dot, 'content', 'chronicle_content.html')
             ).read(),
@@ -89,23 +89,41 @@ class ChroniclePost(webapp.RequestHandler):
       try:
          # Try to interpret user-input date.
          datetime.datetime.strptime(date_string, '%m/%d/%Y')
+         specified_date_is_valid = True
+         content_file = 'itworked_content.html'
       except Exception:
          # Cannot make a date out of user input: good-bye!
-         self.response.out.write('Date error')
+         specified_date_is_valid = False
+         content_file = 'itdidnotwork_content.html'
 
-      user_data = data[0]
-      chronicle_docs = json.loads(user_data.chronicles or '{}')
 
-      if date_string in chronicle_docs.keys():
-         chronicle_docs[date_string] += \
-            app_admin.CHRONICLE_SEPARATOR + chronicle
-      else:
-         chronicle_docs[date_string] = chronicle
+      if specified_date_is_valid:
+         user_data = data[0]
+         chronicle_docs = json.loads(user_data.chronicles or '{}')
 
-      user_data.chronicles = json.dumps(chronicle_docs)
-      user_data.put()
+         if date_string in chronicle_docs.keys():
+            chronicle_docs[date_string] += \
+               app_admin.CHRONICLE_SEPARATOR + chronicle
+         else:
+            chronicle_docs[date_string] = chronicle
 
-      self.response.out.write('Done!')
+         user_data.chronicles = json.dumps(chronicle_docs)
+         user_data.put()
+
+      dot = os.path.dirname(__file__)
+
+      template_path = os.path.join(dot, 'euchronism_template.html')
+      template_values = {
+         'page_title': 'Chronicle saved (%s)' % user.email(),
+         'page_content': open(
+             os.path.join(dot, 'content', content_file)
+         ).read(),
+         'logout_url': users.create_logout_url("/"),
+      }
+
+      self.response.out.write(
+            template.render(template_path, template_values)
+      )
 
 
 application = webapp.WSGIApplication([
