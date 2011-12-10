@@ -25,7 +25,7 @@ handlers:
   script: euchronism_nologin.py
 
 - url: /.*
-  script: euchronism_chronicles.py
+  script: euchronism_lightrays.py
   login: required
 
 builtins:

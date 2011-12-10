@@ -52,9 +52,17 @@ p {
 #send_on {
   float:left;
   margin-left: 10px;
+  font-size:small;
 }
 #text_area {
   float:left;
+}
+#date_feedback {
+  float:left;
+  width: 95px;
+  margin-top:10px;
+  margin-left:10px;
+  font-size:small;
 }
 #submit_button {
   float:left;
@@ -63,10 +71,16 @@ p {
 #quote{
   position:absolute;
   width:220px;
-  top: 50px;
+  top: 45px;
   right:30px;
   float:left;
   font-size:small;
+}
+#logout_button {
+  float:left;
+  clear:left;
+  margin-left:210px;
+  margin-top:4em;
 }
 #footer {
   float:left;

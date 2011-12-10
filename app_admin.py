@@ -10,7 +10,7 @@ from google.appengine.ext import db
 
 # -------------------------------------------------------------------
 ADMAIL = 'euchronism.mailer@gmail.com'
-MAX_MAIL_PER_DAY = 100
+MIN_TIME_DELTA = 14 # send min 2 weeks from now
 CHRONICLE_SEPARATOR = \
 """
 
@@ -23,10 +23,10 @@ CHRONICLE_SEPARATOR = \
 class EuchronismData(db.Model):
    """Store user messages."""
    user = db.UserProperty()
-   chronicles = db.TextProperty()
+   lightrays = db.TextProperty()
 
-def chronicle_key():
-   return db.Key.from_path('Chronicle', '1')
+def lightray_key():
+   return db.Key.from_path('Lightray', '1')
 
 def mail_admin(user_mail, message=None):
    """Send a mail to admin. If no message is specified,

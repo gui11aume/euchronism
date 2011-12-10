@@ -18,7 +18,6 @@ class FAQ(webapp.RequestHandler):
       template_values = {
          'page_title': 'Euchronism FAQ',
          'page_content': open(content_path).read(),
-         'logout_url': users.create_logout_url("/"),
       }
       self.response.out.write(
          template.render(template_path, template_values)

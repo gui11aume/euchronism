@@ -4,6 +4,12 @@
  * Project Page: http://marcgrabanski.com/article/clean-calendar
  * Under the MIT License */
 
+/* 
+ * gui11aume change summary:
+ * Changed the date format from day/month/year to year/month/day
+ * Added a call to onchange() after setting the input content
+ */
+
 var popUpCal = {
   selectedMonth: new Date().getMonth(),
   // 0-11
@@ -136,6 +142,8 @@ var popUpCal = {
         document.getElementById(popUpCal.calendarId).style.display = 'none';
         popUpCal.selectedDay = this.innerHTML;
         inputObj.value = formatDate(popUpCal.selectedDay, popUpCal.selectedMonth, popUpCal.selectedYear);
+// gui11aume edit:
+        inputObj.onchange();
       }
     }
   }
@@ -167,7 +175,9 @@ function formatDate(Day, Month, Year) {
   // add a zero if less than 10
   if (Day < 10) Day = '0' + Day;
   // add a zero if less than 10
-  var dateString = Month + '/' + Day + '/' + Year;
+// gui11aume edit:
+//  var dateString = Month + '/' + Day + '/' + Year;
+  var dateString = Year + '/' + Month + '/' + Day;
   return dateString;
 }
 

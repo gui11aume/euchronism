@@ -24,27 +24,27 @@ class Despatcher(webapp.RequestHandler):
 
       # Get all users data.
       data = app_admin.EuchronismData.gql(
-            'WHERE ANCESTOR IS :1', app_admin.chronicle_key()
+            'WHERE ANCESTOR IS :1', app_admin.lightray_key()
       )
 
       for user_data in data:
 
          # Embed in a try. Send a mail to admin in case of failure.
          try:
-            chronicles = json.loads(user_data.chronicles or '{}')
-            if today in chronicles.keys():
-               todays_chronicle = chronicles.pop(today)
+            lightrays = json.loads(user_data.lightrays or '{}')
+            if today in lightrays.keys():
+               todays_lightray = lightrays.pop(today)
    
                msg = mail.EmailMessage()
                msg.initialize(
                   to = user_data.user.email(),
                   sender = app_admin.ADMAIL,
-                  subject = 'Chronicle',
-                  body = todays_chronicle
+                  subject = 'Your light ray has returned'
+                  body = todays_lightray
                )
                msg.send()
    
-               user_data.chronicles = json.dumps(chronicles)
+               user_data.lightrays = json.dumps(lightrays)
                user_data.put()
 
          except Exception:
