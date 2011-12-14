@@ -148,7 +148,7 @@ class LightrayPost(webapp.RequestHandler):
 
       template_path = os.path.join(dot, 'euchronism_template.html')
       template_values = {
-         'page_title': 'Lightray saved (%s)' % user.email(),
+         'page_title': 'Lightray on its way (%s)' % user.email(),
          'page_content': open(
              os.path.join(dot, 'content', content_file)
          ).read(),
