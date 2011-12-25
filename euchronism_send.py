@@ -20,7 +20,7 @@ class Despatcher(webapp.RequestHandler):
 
    def get(self):
 
-      today = datetime.datetime.today().strftime('%m/%d/%Y')
+      today = datetime.datetime.today().strftime('%Y/%m/%d')
 
       # Get all users data.
       data = app_admin.EuchronismData.gql(

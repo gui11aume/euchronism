@@ -9,7 +9,6 @@ try:
    import json
 except ImportError:
    import simplejson as json
-from hashlib import sha1
 
 import app_admin
 
@@ -21,7 +20,7 @@ from google.appengine.ext.webapp.util import run_wsgi_app
 
 
 class LightrayForm(webapp.RequestHandler):
-   """Handle requests to watch page."""
+   """Handle requests to lightray form page."""
 
    def get(self):
 
