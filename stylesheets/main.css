@@ -2,88 +2,123 @@
 body {
   font-family:"Serif";
 }
-h1 {
-  font-size:300%;
-}
 p {
   text-indent:1em;
 }
 
 /* Other stuff */
 
-#linea {
-  height:5px;
-  background-color:black;
+@media all and (min-width:900px) {
+
+	h1 {
+	  font-size:300%;
+	}
+	#linea {
+	  height:5px;
+	  background-color:black;
+	}
+	#lineb {
+	  height:4px;
+	  background-color:#707070; // Dark grey
+	}
+	#linec {
+	  height:4px;
+	  background-color:#B8B8B8; // Light grey
+	}
+	#links {
+	  position:absolute;
+	  top:2px;
+	  left: 20%;
+	}
+	#band{
+	  margin-bottom:0px;
+	  padding-bottom:0px;
+	}
+	#vertical_spacer {
+          height:20px;
+	}
+	#main_container {
+          position:absolute;
+	  padding-top:0px;
+	  margin-top:0px;
+          left:50%;
+	  width:900px;
+          margin-left:-450px;
+	}
+	#words {
+	  float:left;
+	  width:170px;
+	}
+	#body {
+	  width:700px;
+	  float:left;
+	}
+	#logout {
+	  margin-top:3em;
+	  float:left;
+	}
+	#send_on {
+	  float:left;
+	  margin-left: 10px;
+	  font-size:small;
+	}
+	#text_area {
+	  float:left;
+	}
+	#date_feedback {
+	  float:left;
+	  width: 95px;
+	  margin-top:10px;
+	  margin-left:10px;
+	  font-size:small;
+	}
+	#submit_button {
+	  float:left;
+	  clear:both;
+	}
+	#quote{
+	  position:absolute;
+	  width:220px;
+	  top: 30px;
+	  right:30px;
+	  font-size:small;
+	}
 }
-#lineb {
-  height:4px;
-  background-color:#707070; // Dark grey
-}
-#linec {
-  height:4px;
-  background-color:#B8B8B8; // Light grey
-}
-#links {
-  position:absolute;
-  top:2px;
-  left: 180px;
-}
-#band{
-  margin-bottom:0px;
-  padding-bottom:0px;
-}
-#main_container {
-  padding-top:0px;
-  margin-top:0px;
-  width:900px;
-}
-#words {
-  float:left;
-  width:170px;
-}
-#body {
-  width:700px;
-  float:left;
-}
-#logout{
-  margin-top:3em;
-  float:left;
-}
-#send_on {
-  float:left;
-  margin-left: 10px;
-  font-size:small;
-}
-#text_area {
-  float:left;
-}
-#date_feedback {
-  float:left;
-  width: 95px;
-  margin-top:10px;
-  margin-left:10px;
-  font-size:small;
-}
-#submit_button {
-  float:left;
-  clear:both;
-}
-#quote{
-  position:absolute;
-  width:220px;
-  top: 45px;
-  right:30px;
-  float:left;
-  font-size:small;
-}
-#logout_button {
-  float:left;
-  clear:left;
-  margin-left:210px;
-  margin-top:4em;
-}
-#footer {
-  float:left;
-  clear:both;
-  height:4em;
+
+@media all and (max-width:899px) {
+
+	#main_header {
+	  display:none;
+	}
+	#vertical_spacer {
+	  height:20px;
+	}
+	#words {
+	  display:none;
+	}
+	#lightray {
+	  width:99%;
+	}
+	#logout {
+	  margin-top:3em;
+	  float:left;
+	}
+	#send_on {
+	  float:left;
+	  font-size:small;
+	}
+	#date_feedback {
+	  float:left;
+	  clear:both;
+	  font-size:small;
+	}
+	#quote{
+	  display:none;
+	}
+	#footer {
+	  float:left;
+	  clear:both;
+	  height:8em;
+	}
+
 }

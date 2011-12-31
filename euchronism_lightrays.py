@@ -55,15 +55,18 @@ class LightrayForm(webapp.RequestHandler):
                'content',
                'lightray_content.html'
          )
-         content = template.render(
-               content_path,
-               {'logout_url': users.create_logout_url("/"),}
-         )
+         logout_link = '&nbsp;<a href="%s">' % users.create_logout_url("/")
+         logout_link += '<img src="images/logout.jpg" border="0"></img></a>'
 
          template_path = os.path.join(dot, 'euchronism_template.html')
          template_values = {
+            'extra_links': logout_link,
             'page_title': 'Euchronism (%s)' % user.email(),
-            'page_content': content,
+            'page_content': open(os.path.join(
+                                  dot,
+                                  'content',
+                                  'lightray_content.html'
+                            )).read(),
          }
 
          # ... and send!

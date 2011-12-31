@@ -4,7 +4,6 @@
   <head>
     <title>{{ page_title|safe }}</title>
     <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
-    <link type="text/css" rel="stylesheet" href="/stylesheets/phone.css" media="handheld" />
     <link type="text/css" rel="stylesheet" href="/stylesheets/calendar.css" />
     <style type="text/css">
     <!--{{ page_css|safe }}-->
@@ -20,10 +19,10 @@
          <a href="/"><img src="images/lightrays.jpg" border="0"></a>
          &nbsp;
          <a href="/FAQ.html"><img src="images/FAQ.jpg" border="0"></a>
+         {{ extra_links|safe }}
       </div>
     </div>
-   Euchronism
-    </div>
+    <div id="vertical_spacer"></div>
     <div id="main_container">
       <div id="words"><img src="images/wordcloud.jpg"></div>
       <div id="body">{{ page_content|safe }} </div>
@@ -32,8 +31,8 @@
          <br />  
          &#8212; Leonardo Da Vinci
       </div>
-      <div id="logout">
-      </div>
+      <div id="logout"></div>
+      <div id="footer"></div>
     </div>
   </body>
 </html>

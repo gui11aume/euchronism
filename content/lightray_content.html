@@ -11,20 +11,19 @@ function stopRKey(evt) {
 document.onkeypress = stopRKey;
 </script>
 
-<h1>Send a lightray</h1>
+<h1 id="main_header">Send a lightray</h1>
 
 <div id="submit_area">
   <form action="/lightraypost" method="post">
     <div id="text_area">
+      <input id="submit_button" type="submit" value="Submit">
       <br />
-      <textarea name="lightray" rows="9" cols="71"></textarea>
+      <textarea id="lightray" name="lightray" rows="9" cols="71"></textarea>
     </div>
     <div id="send_on">approx. date<br />
       <input id="date_input" type="text" name="date" class="calendarSelectDate" size="7" onchange="checkDate(this)">
     </div>
     <div id="date_feedback"></div>
-    <input id="submit_button" type="submit" value="Submit">
   </form>
 </div>
-<a href="{{ logout_url }}"><img id="logout_button" src="images/logout.jpg" border="0"></img></a>
 <div id="calendarDiv"></div>
