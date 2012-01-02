@@ -56,7 +56,8 @@ class LightrayForm(webapp.RequestHandler):
                'lightray_content.html'
          )
          logout_link = '&nbsp;<a href="%s">' % users.create_logout_url("/")
-         logout_link += '<img src="images/logout.jpg" border="0"></img></a>'
+         logout_link += '<img class="top_link" src="images/logout.jpg" '
+         logout_link += 'border="0"></img></a>'
 
          template_path = os.path.join(dot, 'euchronism_template.html')
          template_values = {

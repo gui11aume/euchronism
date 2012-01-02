@@ -8,7 +8,7 @@ p {
 
 /* Other stuff */
 
-@media all and (min-width:900px) {
+@media screen and (min-device-width:481px) {
 
 	h1 {
 	  font-size:300%;
@@ -85,11 +85,8 @@ p {
 	}
 }
 
-@media all and (max-width:899px) {
+@media only screen and (max-device-width:480px) {
 
-	#body {
-	  width:400px;
-        }
 	#main_header {
 	  display:none;
 	}
@@ -101,7 +98,6 @@ p {
 	}
 	#lightray {
 	  width:99%;
-          max-width:400px;
 	}
 	#logout {
 	  margin-top:3em;
@@ -124,5 +120,8 @@ p {
 	  clear:both;
 	  height:8em;
 	}
+        .top_link {
+          height:17px;
+        }
 
 }
