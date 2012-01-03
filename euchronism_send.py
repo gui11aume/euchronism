@@ -34,16 +34,16 @@ class Despatcher(webapp.RequestHandler):
             lightrays = json.loads(user_data.lightrays or '{}')
             if today in lightrays.keys():
                todays_lightray = lightrays.pop(today)
-   
+
                msg = mail.EmailMessage()
                msg.initialize(
                   to = user_data.user.email(),
                   sender = app_admin.ADMAIL,
-                  subject = 'Your light ray has returned'
+                  subject = 'Your light ray has returned',
                   body = todays_lightray
                )
                msg.send()
-   
+
                user_data.lightrays = json.dumps(lightrays)
                user_data.put()
 
