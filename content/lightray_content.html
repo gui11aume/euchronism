@@ -21,9 +21,9 @@ document.onkeypress = stopRKey;
       <textarea id="lightray" name="lightray" rows="9" cols="71"></textarea>
     </div>
     <div id="send_on">approx. date<br />
-      <input id="date_input" type="text" name="date" class="calendarSelectDate" size="7" onchange="checkDate(this)">
+      <input id="date_input" type="text" name="date" class="calendarSelectDate" onchange="checkDate(this)">
+      <div id="date_feedback"></div>
     </div>
-    <div id="date_feedback"></div>
   </form>
 </div>
 <div id="calendarDiv"></div>
